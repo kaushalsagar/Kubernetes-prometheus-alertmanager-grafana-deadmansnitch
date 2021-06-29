@@ -10,4 +10,5 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 helm search repo kube-prometheus-stack
 kubectl create ns monitoring
+kubectl label nodes <your-node-name>  server=monitoring
 helm install monitoring  -n monitoring -f values.yaml prometheus-community/kube-prometheus-stack
