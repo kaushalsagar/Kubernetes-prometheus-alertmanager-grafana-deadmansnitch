@@ -1,5 +1,5 @@
 #urls
-https://github.com/helm/charts/tree/master/stable/prometheus-operator  depriciated
+https://github.com/helm/charts/tree/master/stable/prometheus-operator  DEPRECATED
 https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack uptodate
 
 
