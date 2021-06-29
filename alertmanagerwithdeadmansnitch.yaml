@@ -1,0 +1,24 @@
+global:
+  slack_api_url: https://hooks.slack.com/services/<slack etc>
+receivers:
+- name: slack
+  slack_configs:
+  - channel: '#yourchannelname'
+    icon_emoji: ':bell:'
+    send_resolved: true
+    text: "<!channel> \nsummary: {{ .CommonAnnotations.message }}\n"
+- name: DMS
+  webhook_configs:
+  - send_resolved: false
+    url: https://nosnch.in/<id>
+route:
+  group_by:
+  - alertname
+  group_interval: 1m
+  group_wait: 5s
+  receiver: slack
+  repeat_interval: 10m
+  routes:
+  - match:
+      alertname: Watchdog
+    receiver: DMS
